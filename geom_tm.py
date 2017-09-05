@@ -193,7 +193,6 @@ class geom_tm(BaseEstimator, ClusterMixin):
     def fit_all(self, data, cent, it=5):
         self = self.fit_a(data, cent)
         self = self.fit_sph(data, cent, it=it)
-#        self = self.fit_m(data, cent)
         return self
     def score_beta(self, beta_t):
         score = []
@@ -201,7 +200,5 @@ class geom_tm(BaseEstimator, ClusterMixin):
             score.append(min_match(self.a_betas_, beta_t))
         if hasattr(self, 'sph_betas_'):
             score.append(min_match(self.sph_betas_, beta_t))
-        if hasattr(self, 'm_betas_'):
-            score.append(min_match(self.m_betas_, beta_t))
         return score
         
